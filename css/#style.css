@@ -3,29 +3,67 @@ css\style.css
 Folhas de estilo do template do site.
 */
 
-/* Importa fonte Robot do Google Fonts */
+/* Importa fonte Robot do Google Fonts 
+Referências: https://fonts.google.com
+*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/*
+Importa a biblioteca de ícones FontAwesome
+Referências: https://fontawesome.com
+*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css');
 
 /* Reset Geral */
 
 *{
     box-sizing: border-box;
-    outline: nono;
+    outline: none;
 
 }
 
-/*Fonte padrão e tamanho */
+/*Elementos raiz*/
+html,
+ body{
+    /* Reset nas margens e enchimentos */
+    position: relative; /* Permite usar height nos elementos div */
+    margin: 0;
+    padding: 0;
+    height: 100%;
 
-html, body{
+    /*Fonte padrão e tamanho*/
     font-family: "Roboto",Arial, Helvetica, sans-serif;
     fomt-size: 16px;
     /*
     A linha acima ativa a unidade de mendida "rem' onde: 
     1rem = 16px
-    .5rem = 8px
-    .25rem = 4px
+    .5rem ou 0.5rem = 8px
+    .25rem ou 0.25rem = 4px
     2rem = 32px
     3rem = 48px
     */
+}
+
+/*
+Reset dos titulos e parágrafos
+trocando margin por padding
+*/
+h1,h2,h3,h4,h5,h6, p {
+    margin:0;
+    padding: .5rem;
+}
+
+a { 
+    color: steelblue;
+    text_descoration: none;
+
+}
+
+a.houver {
+    color: orangered;
+}
+/* Elemento wap*/
+#wap { 
+    background-color: aquamarine;
+    max-width: 1080p;
 }
