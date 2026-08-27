@@ -21,25 +21,37 @@
          
         <header>
             <!-- Logotipo clicável para a página inicial -->
-            <div class= "logotitle">
+            <div class= "logotitle"></div>
                 <a href="index.html">
                     <img src="img/logo01.jpg" alt="Logotipo do Primeiros passos">
                 </a>
                 <h1>FirstSteps</h1>
             </div>
-            <form action="https://www.google.com/search" target="_blank" method="get">
+            <form class="header-search" action="https://www.google.com/search" target="_blank" method="get">
                 <input type="search" name="q">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-fw"></i></button>
             </form>
 
         </header>
 
-        <nav>
+        <nav aria-label="Menu principal">
 
-            <a href="index.html">Início</a>
-            <a href="content.html">Conteúdo</a>
-            <a href="contacts.html">Contatos</a>
-            <a href="about.html">Sobre</a>
+            <a href="index.html" title="Página inicial" aria-label="Página inicial">
+                <i class="fa-solid fa-house fa-fw"></i>
+                <span>Início</span>
+            </a>
+            <a href="content.html" title="Conteúdo do site" aria-label="Conteúdo do site">
+                <i class="fa-solid fa-file-lines fa-fw"></i>
+                <span>Conteudo</span>
+            </a>
+            <a href="contacts.html" title="Faça contato" aria-label="Faça contato">
+                  <i class="fa-solid fa-comments fa-fw"></i>
+                  <span>Contatos</span>
+                </a>
+            <A href="about.html" title=" Mais informações" aria-label="Mais informações">
+                <i class="fa-solid fa-circle-info fa-fw"></i>
+                <span>Sobre</span>
+            </a>
 
         </nav>
 
@@ -63,8 +75,8 @@
                     <li><a href="https://youtube.com" target="_blank">Youtube</a></li>
                 </ul>
 
-                <img src="https://picsum.photos/400/200" alt="Imagem aleatória">
-}
+                <img class="azul" src="https://picsum.photos/400/200" alt="Imagem aleatória">
+
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam eius libero quos, commodi explicabo
                     voluptates voluptas temporibus nam facilis dolorum, dicta rerum repellendus! Minima numquam deleniti
                     sapiente quibusdam, vero molestias.</p>

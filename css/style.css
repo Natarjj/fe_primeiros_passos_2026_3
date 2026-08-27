@@ -14,9 +14,27 @@ Referências: https://fontawesome.com
 */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css');
 
+/* Variáveis com estilos de uso geral*/
+:root {
+    --wrap-max-width: 1080px;
+    --defaul-links: steelblue;
+    --default-links-houver: orangered;
+    --background-image: url(../img/fundo.png);
+    --body-background-color: rgb(167, 162, 162);
+    --header-background-color: orange;
+    --header-logo-font: Arial, helvetica, sans-serif;
+    --header-title-stroke: .75px white;
+    --nav-footer-background-color: black;
+    --article-section-background-color: white;
+    --aside-background-color: #eee;
+    --nav-menu-color: white;
+    --nav-menu-hover-color: white;
+    --nav-menu-hover-bg-color: rgba(255,255,255,.4);
+}
+
 /* Reset Geral */
 
-*{
+* {
     box-sizing: border-box;
     outline: none;
 
@@ -24,16 +42,17 @@ Referências: https://fontawesome.com
 
 /*Elementos raiz*/
 html,
- body{
+body {
     /* Reset nas margens e enchimentos */
-    position: relative; /* Permite usar height nos elementos div */
+    position: relative;
+    /* Permite usar height nos elementos div */
     margin: 0;
     padding: 0;
     height: 100%;
 
     /*Fonte padrão e tamanho*/
-    font-family: "Roboto",Arial, Helvetica, sans-serif;
-    fomt-size: 16px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 16px;
     /*
     A linha acima ativa a unidade de mendida "rem' onde: 
     1rem = 16px
@@ -48,41 +67,37 @@ html,
 Reset dos titulos e parágrafos
 trocando margin por padding
 */
-h1,h2,h3,h4,h5,h6, p {
-    margin:0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
     padding: .5rem;
 }
 
-a { 
-    color: steelblue;
-    text_descoration: none;
+/*Padronizar links*/
+a {
+    color: var(--defaul-links);
+    text-decoration: none;
 
 }
 
 a.houver {
-    color: orangered;
+    color: var(--default-links-houver);
 }
 
 /*Tela de fundo*/
-body{
-   /* background: linear-grandient (to right, blue, red, cyan);;*/
-   background-image: url("../img/fundo.png");
-   background-color: black;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-attachment: fixed;
-}
-
-/* Elemento Wrap*/
-#wrap { 
-    max-width: 1080p;
-    margin: auto;
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
+body {
+    /* background: linear-grandient (to right, blue, red, cyan);;*/
+    background-image: var(--background-image);
+    background-color: var(--body-background-color);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Imagem responsiva*/
@@ -92,19 +107,32 @@ body{
     height: auto;
 
 }
+/* Elemento Wrap*/
+#wrap {
+    max-width: var(--wrap-max-width);
+    margin: auto;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
 
 /* Cabeçalho da pagina*/
 
 /* header é filho direto de #wrap (>) 
 parent > dirct-child */
 
-#wrap > header{
-    background-color: orange;
+#wrap>header {
+    background-color: var(--header-background-color);
     border-radius: .5rem;
     margin: .5rem;
+    display: flex;
+    flex-direction: column;
 
 }
-#wrap > header img{
+
+#wrap>header img {
     display: block;
     width: 90px;
     border-radius: 50%;
@@ -115,29 +143,30 @@ parent > dirct-child */
 .logotitle {
     display: flex;
     align-items: center;
-    
 }
-.logotiple h1 {
-    font-family: Arial, Helvetica, sans-serif;
+
+.logotitle h1 {
+    font-family: var(--header-logo-font);
     font-weight: bold;
     /* Experimental: adicinar uma borda ao texto */
-    -webkit-text-stroke: .75px white;
+    -webkit-text-stroke: var(--header-title-stroke);
 }
 
 /*Formulario de pesquisa */
 .header-search {
-    PADDING: 1rem;
+    padding: 1rem;
     display: flex;
+    border-top: 1px dotted white;
 }
+
 /*Filho do formulario*/
-.header.search input,
-.header-search button { 
+.header-search input,
+.header-search button {
     font-family: inherit;
-    flex-size: 1;
+    font-size: inherit;
     border: none;
-
-
 }
+
 /*Só com o campo de pesquisa*/
 .header-search input {
     padding: .5rem;
@@ -145,12 +174,126 @@ parent > dirct-child */
     border-radius: .3rem 0 0 .3rem;
 }
 
-.reader-search botton {
+.header-search button {
     padding: .5rem;
     border-radius: 0 .3rem .3rem 0;
     cursor: pointer;
 }
+/* Midia queries para telas de 640px ou mais */
+@media screen and (main-width: 640px) {
+
+/* Cabeçalho <header> responsivo*/
+    #wrap>header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-search {
+        border: none;
+    }
+}
+
 /* Menu principal*/
-#wrap > nav {
-    background-color: black;
+#wrap>nav {
+    background-color: var(--nav-footer-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: .5rem;
+    margin-top: 0;
+    border-radius: .5rem;
+    border: 1px solid black;
+}
+
+#wrap>nav a:first-child {
+     margin-right: auto;
+     border-radius: .5rem 0 0 .40rem;
+}
+
+#wrap>nav a:last-child {
+    
+    border-radius: 0 .4rem .4rem 0 ;
+
+}
+#wrap>nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5rem;
+    color: var(--nav-menu-color);
+    transition: .2s;
+}
+#wrap>nav a:hover {
+    color: white;
+    background-color: var(--nav-menu-hover-bg-color);
+}
+#wrap>nav a i {
+    font-size: 1.8rem;
+    padding-bottom: .25rem;
+
+}
+
+/* Botão top flutuante */
+
+.float.-top {
+    bottom: 10px;
+    right: 10px;
+    position: fixed;
+}
+
+/* Main e conteúdo principal */
+
+#wrapmain {}
+
+#wrap>main section,
+#wrap>main article,
+#wrap>main aside {
+    margin: .5rem;
+    margin-top: 0;
+    border-radius: .5rem;
+}
+
+#wrap>main section, 
+#wrap>main article {
+    background-color: var(--article-section-background-color);
+    margin: .5rem;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    line-height: 1.5;
+
+}
+
+#wrap>main aside {
+    background-color: var(--aside-background-color);
+    padding: 1rem;
+}
+
+/* Media queries para telas de 640px ou mais */
+@media screen and (min-width: 640px) {
+
+    /* Cabeçalho <header> responsivo */
+    #wrap>header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Formulário de pesquisa responsivo */
+    .header-search {
+        border: none;
+    }
+
+    /* Itens do menu principal responsivos */
+    #wrap>nav a {
+        flex-direction: row;
+        padding: .65rem 1rem;
+    }
+
+    /* Ícones do menu principal */
+    #wrap>nav a i {
+        font-size: 1.2rem;
+        padding-right: .25rem;
+    }
+
 }
