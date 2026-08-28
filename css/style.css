@@ -29,7 +29,7 @@ Referências: https://fontawesome.com
     --aside-background-color: #eee;
     --nav-menu-color: white;
     --nav-menu-hover-color: white;
-    --nav-menu-hover-bg-color: rgba(255,255,255,.4);
+    /* --nav-menu-hover-bg-color: rgba(255,255,255,.4); */
 }
 
 /* Reset Geral */
@@ -296,4 +296,12 @@ parent > dirct-child */
         padding-right: .25rem;
     }
 
+}
+
+/* Quando a largura da tela for de 768px ou mais */
+@media screen and (main-width: 768px) {
+    #wrap>main { 
+
+    }
+    
 }
