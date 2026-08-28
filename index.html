@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Importa o CSS do template (principal) -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Importa o CSS do Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- Ícone de favoritos que aparece na guia da página -->
+    <link rel="icon" href="img/logotipo.02.png">
     <title>FirstSteps</title>
 </head>
 
@@ -23,12 +21,12 @@
             <!-- Logotipo clicável para a página inicial -->
             <div class= "logotitle">
                 <a href="index.html">
-                    <img src="img/logo01.jpg" alt="Logotipo do Primeiros passos">
+                    <img src="img/logotipo.02.png" alt="Logotipo do Primeiros passos">
                 </a>
-                <h1>FirstSteps</h1>
+                <h1>CodeByNatã</h1>
             </div>
             <form class="header-search" action="https://www.google.com/search" target="_blank" method="get">
-                <input type="search" name="q">
+                <input type="search" name="q" placeholder="pesquisar">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-fw"></i></button>
             </form>
 
@@ -107,7 +105,30 @@
 
         </footer>
 
+        <!-- Hack para margin no final da tela -->
+        <div class="end-margin">&nbsp;</div>
+
     </div>
+
+    <!-- Aviso de cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+
+    <div class="cookie-text">
+        <strong>🍪 Este site utiliza cookies</strong>
+        <p>
+            Utilizamos cookies para melhorar sua experiência de navegação.
+            Ao continuar navegando, você concorda com o uso de cookies.
+        </p>
+    </div>
+
+    <button id="cookie-accept" type="button">
+        Aceitar
+    </button>
+
+</div>
+
+<script>const pagenName = "Home Page"</script>
+<script src="js.scripts.js"></script>
 
 </body>
 

@@ -21,15 +21,16 @@ Referências: https://fontawesome.com
     --default-links-houver: orangered;
     --background-image: url(../img/fundo.png);
     --body-background-color: rgb(167, 162, 162);
-    --header-background-color: orange;
+    --header-background-color: rgb(58, 80, 95);
     --header-logo-font: Arial, helvetica, sans-serif;
     --header-title-stroke: .75px white;
     --nav-footer-background-color: black;
     --article-section-background-color: white;
     --aside-background-color: #eee;
+    --top-search-border :  3px dotted white;
     --nav-menu-color: white;
     --nav-menu-hover-color: white;
-    /* --nav-menu-hover-bg-color: rgba(255,255,255,.4); */
+    --nav-menu-hover-bg-color: rgba(255,255,255,.4); 
 }
 
 /* Reset Geral */
@@ -75,7 +76,7 @@ h5,
 h6,
 p {
     margin: 0;
-    padding: .5rem;
+    padding: .5rem 0;
 }
 
 /*Padronizar links*/
@@ -107,11 +108,12 @@ body {
     height: auto;
 
 }
-/* Elemento Wrap*/
+/* Elemento Wrap (#wrap) */
 #wrap {
     max-width: var(--wrap-max-width);
     margin: auto;
     position: relative;
+    /* Forçar o footer no final da tela - Sticky footer */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -119,10 +121,10 @@ body {
 }
 
 /* Cabeçalho da pagina*/
-
-/* header é filho direto de #wrap (>) 
-parent > dirct-child */
-
+/*
+<header> que é filho direto (>) de <div#wrap> 
+Seletor: parent > direct-child 
+*/
 #wrap>header {
     background-color: var(--header-background-color);
     border-radius: .5rem;
@@ -132,31 +134,39 @@ parent > dirct-child */
 
 }
 
-#wrap>header img {
-    display: block;
-    width: 90px;
-    border-radius: 50%;
-    margin: .5rem;
-}
-
-/* Referências https://www.w3schools.com/css/css3_flexbox.asp */
+/* 
+Logotipo e título do site (div.logotitle) usando Flexbox
+Referências: https://www.w3schools.com/css/css3_flexbox.asp 
+*/
 .logotitle {
     display: flex;
     align-items: center;
+    img{border-radius: 25%;}
 }
+/* `display: flex` alinha os elementos lado-a-lado por padrão */
 
+/* Logotipo */
+.logotilte img {
+    width: 90px;
+    margin: .5rem;
+    /* Deixa a imagem `quadrada`, redonda */
+    display: block;
+    border-radius: 15px 5px 15px 5px
+}
+/* Nome do site */
 .logotitle h1 {
     font-family: var(--header-logo-font);
     font-weight: bold;
     /* Experimental: adicinar uma borda ao texto */
     -webkit-text-stroke: var(--header-title-stroke);
+    
 }
 
-/*Formulario de pesquisa */
+/*Formulario de pesquisa  no cabeçalho */
 .header-search {
     padding: 1rem;
     display: flex;
-    border-top: 1px dotted white;
+    border-top: var(--top-search-borderp);
 }
 
 /*Filho do formulario*/
@@ -171,27 +181,15 @@ parent > dirct-child */
 .header-search input {
     padding: .5rem;
     flex-grow: 1;
+    /* Faz o elemento ocupar todo o espaço não usado do elemento pai */
     border-radius: .3rem 0 0 .3rem;
 }
 
 .header-search button {
     padding: .5rem;
     border-radius: 0 .3rem .3rem 0;
+    /* Modifica o cursor no mouse. Não funciona em `touch` */
     cursor: pointer;
-}
-/* Midia queries para telas de 640px ou mais */
-@media screen and (main-width: 640px) {
-
-/* Cabeçalho <header> responsivo*/
-    #wrap>header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .header-search {
-        border: none;
-    }
 }
 
 /* Menu principal*/
@@ -204,11 +202,14 @@ parent > dirct-child */
     margin-top: 0;
     border-radius: .5rem;
     border: 1px solid black;
+     /* Posiciona os elementos filho à direita */
+    justify-content: end;
 }
 
+/* Seleciona somente o primeiro elemento filho do tipo <a> */
 #wrap>nav a:first-child {
      margin-right: auto;
-     border-radius: .5rem 0 0 .40rem;
+     border-radius: .4rem 0 0 .4rem;
 }
 
 #wrap>nav a:last-child {
@@ -216,16 +217,21 @@ parent > dirct-child */
     border-radius: 0 .4rem .4rem 0 ;
 
 }
+/* Opções do menu */
 #wrap>nav a {
     display: flex;
+     /* Os ícones ficam acima das label */
     flex-direction: column;
     align-items: center;
     padding: .5rem;
     color: var(--nav-menu-color);
+     /* Adiciona 200 ms de transição entre os efeitos */
     transition: .2s;
 }
+
+/* Ao passar o ponteiro sobre as opções do menu */
 #wrap>nav a:hover {
-    color: white;
+    color:var(--nav-menu-hover-color);
     background-color: var(--nav-menu-hover-bg-color);
 }
 #wrap>nav a i {
@@ -260,7 +266,7 @@ parent > dirct-child */
     margin: .5rem;
     padding: 1.5rem;
     border-radius: .5rem;
-    line-height: 1.5;
+    line-height: 1.5rem;
 
 }
 
@@ -269,11 +275,119 @@ parent > dirct-child */
     padding: 1rem;
 }
 
-/* Media queries para telas de 640px ou mais */
+/**********
+ * Rodapé *
+ **********/
+
+ #wrap>footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--nav-footer-background-color);
+    margin: 0 .5rem;
+    border-radius: .5rem;
+    color: white;
+ }
+ 
+ /* Hack para margem do último elemento */
+ .end-margin {
+    font-size: .5rem;
+ }
+
+ /* Links para home e topo da pagina */
+#wrap>footer a {
+    font-size: 2rem;
+    color: var(--nav-menu-color);
+    padding: .25rem;
+}
+/* Ao passar o curso do mouse sobre os ícones */
+#wrap>footer a:hover {
+    color: var(--nav-menu-hover-color);
+    background-color: var(--nav-menu-hover-bg-color);
+}
+
+/* Seleciona somente o primeiro elemento filho do tipo <a> */
+#wrap>footer a:first-child {
+    margin-right: auto;
+    border-radius: .4rem 0 0 .4rem;
+}
+
+/* Seleciona somente o último elemento filho do tipo <a> */
+#wrap>footer a:last-child {
+    border-radius: 0 .4rem .4rem 0;
+}
+
+#wrap>footer div {
+
+}
+
+/********************
+ * Aviso de Cookies *
+ ********************/
+
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 20px;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+    z-index: 9999;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cookie-text p {
+    margin: 0;
+}
+
+#cookie-accept {
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #004953;
+    color: white;
+
+    cursor: pointer;
+}
+
+#cookie-accept:hover {
+    opacity: 0.85;
+}
+
+/**********************************
+ * Responsividade e Media Queries *
+ **********************************/
+
+/*  Quando a largura da tela for de 640px ou mais */
 @media screen and (min-width: 640px) {
 
     /* Cabeçalho <header> responsivo */
     #wrap>header {
+        /* Posiciona o formulário ao lado do título */
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -301,7 +415,26 @@ parent > dirct-child */
 /* Quando a largura da tela for de 768px ou mais */
 @media screen and (main-width: 768px) {
     #wrap>main { 
+        /* Posiciona os filhos em linhas, um sobre o outro */
+        flex-direction: row;
+    }
+
+    /* Elemento com conteúdo principal */
+    #wrap>main section,
+    #wrap>main aticle{
+        flex-grow: 1;
+    }
+
+    /* Elemento com conteúdo auxiliar */
+    #wrap>main aside {
+       margin-left: 0;
+       flex: 1 0 220px;
+       /* 
+       O estilo acima é o mesmo que:
+       flex-grow 1;True
+       flex-shrink: 0; False
+       flex-basis: 200px; Largura do elemento
+        */
 
     }
-    
 }
