@@ -142,6 +142,9 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
     display: flex;
     align-items: center;
     img{border-radius: 25%;}
+    img {
+        mix-blend-mode: multiply;
+    }
 }
 /* `display: flex` alinha os elementos lado-a-lado por padrão */
 
@@ -260,6 +263,12 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
     border-radius: .5rem;
 }
 
+#wrap>section img {
+    width: 50px;
+    height: auto;
+    transition: tram;
+}
+
 #wrap>main section, 
 #wrap>main article {
     background-color: var(--article-section-background-color);
@@ -364,18 +373,27 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
 
 #cookie-accept {
     padding: 10px 20px;
-
     border: none;
     border-radius: 5px;
-
     background-color: #004953;
     color: white;
-
     cursor: pointer;
 }
 
 #cookie-accept:hover {
     opacity: 0.85;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #cookie-accept {
+        width: 100%;
+    }
 }
 
 /**********************************
