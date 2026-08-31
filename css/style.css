@@ -250,7 +250,16 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
 
 /* Main e conteúdo principal */
 
-#wrapmain {}
+#wrap>main {
+    position: relative;
+    height: 100%;
+    display: flex;
+    /* Posiciona os filhos em linhas, um sobre o outro */
+    flex-direction: column;
+
+    /* Forçar o footer no final da tela */
+    flex-grow: 1;
+}
 
 #wrap>main section,
 #wrap>main article,
@@ -413,7 +422,7 @@ Referências: https://www.w3schools.com/css/css3_flexbox.asp
 }
 
 /* Quando a largura da tela for de 768px ou mais */
-@media screen and (main-width: 768px) {
+@media screen and (min-width: 768px) {
     #wrap>main { 
         /* Posiciona os filhos em linhas, um sobre o outro */
         flex-direction: row;

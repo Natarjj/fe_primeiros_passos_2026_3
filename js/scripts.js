@@ -3,20 +3,6 @@ js\scripts.js
 JavaScript do template 
 */
 
-/* Recebe uma variável do HTML */
-if (typeof pageName === undefined) {
-    console.log("Ajuste o JavaScript dessa página!")
-} else {
-    console.log(pageName)
-}
-
-
-const myLogo = document.getElementById('myLogo')
-// console.log(myLogo)
-myLogo.addEventListener("click", function () {
-    alert("Por que clicou aqui?")
-});
-
 
 /********************
  * Aviso de cookies *
